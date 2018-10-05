@@ -1,0 +1,10 @@
+--- dwm.c
++++ dwm.c
+@@ -222,6 +227,7 @@ static void toggleview(const Arg *arg);
+ static void unfocus(Client *c, int setfocus);
+ static void unmanage(Client *c, int destroyed);
+ static void unmapnotify(XEvent *e);
++static void updatecurrentdesktop(void);
+ static int updategeom(void);
+ static void updatebarpos(Monitor *m);
+ static void updatebars(void);
