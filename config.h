@@ -29,7 +29,7 @@ static const char *fonts[] = {
 	"Siji"
 };
 
-static const char dmenufont[]       = "monospace:size=10";
+static const char dmenufont[]       = "Terminus:size=12.5";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
