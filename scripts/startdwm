@@ -1,0 +1,18 @@
+#!/bin/bash
+#Needed by Java apps to work correctly
+touch .restartdwm
+wmname LG3D 
+#Autostart apps 
+(compton -CGb) &
+
+#This is a loop for autostarting dwm after exit...
+#If you want to exit dwm for good, kill xserver using ctrl+alt+backspace
+
+while [ -e ~/.restartdwm ] 
+do
+    feh --randomize --bg-scale ~/Wallpapers/
+    killall dwmstatus                   #Kill old dwmstatus
+    (nohup dwmstatus) &
+    sleep 0.1                           #Wait old dwmstatus to exit
+    dwm                                 #Start Dynamic Windows Manager
+done
