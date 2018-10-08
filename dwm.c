@@ -857,8 +857,8 @@ dirtomon(int dir)
 void
 drawbar(Monitor *m)
 {
-	int x, xx, w;
-	unsigned int i, occ = 0, urg = 0;
+	int x, xx, w, dx, tw, mw;
+	unsigned int i, occ = 0, urg = 0, n = 0, extra = 0;
 	
 	/* used by monocle-count */
     unsigned int a = 0, s = 0;
@@ -866,12 +866,17 @@ drawbar(Monitor *m)
 	Client *c;
 
 	resizebarwin(m);
+
 	for (c = m->clients; c; c = c->next) {
+        if (ISVISIBLE(c))
+            n++;
 		occ |= c->tags;
 		if (c->isurgent)
 			urg |= c->tags;
 	}
+
 	x = 0;
+
 	for (i = 0; i < LENGTH(tags); i++) {
 		w = TEXTW(tags[i]) + tagspacing;
 		drw_setscheme(drw, &scheme[(m->tagset[m->seltags] & 1 << i) ? 1 : (urg & 1 << i ? 2 : (occ & 1 << i ? 3:0))]);
@@ -914,7 +919,40 @@ drawbar(Monitor *m)
 		x = m->ww;
 	if ((w = x - xx) > bh) {
 		x = xx;
-		drw_setscheme(drw, &scheme[0]);
+        if (n > 0) {
+            tw = m->sel->name ? TEXTW(m->sel->name) : 0;
+            mw = (tw >= w || n == 1) ? 0 : (w - tw) / (n - 1);
+
+            i = 0;
+            for (c = m->clients; c; c = c->next) {
+                if (!ISVISIBLE(c) || c == m->sel)
+                    continue;
+                tw = TEXTW(c->name);
+                if (tw < mw)
+                    extra += (mw - tw);
+                else
+                    i++;
+            }
+            if (i > 0)
+                mw += extra / i;
+
+            for (c = m->clients; c; c = c->next) {
+                if (!ISVISIBLE(c))
+                    continue;
+                xx = x + w;
+                tw = TEXTW(c->name);
+                w = MIN(m->sel == c ? w : mw, tw);
+
+                drw_setscheme(drw, m->sel == c ? &scheme[SchemeSel] : &scheme[SchemeNorm]);
+                drw_text(drw, x, 0, w, bh, c->name, 0);
+                drw_rect(drw, x + 1, 1, dx, dx, c->isfixed, c->isfloating, 0);
+
+                x += w;
+                 w = xx - x;
+            }
+
+        }
+		drw_setscheme(drw, &scheme[SchemeNorm]);
 		drw_rect(drw, x, 0, w, bh, 1, 0, 1);
 	}
 	drw_map(drw, m->barwin, 0, 0, m->ww, bh);
