@@ -1,13 +1,17 @@
 ```
-											██████╗ ██╗    ██╗███╗   ███╗
-											██╔══██╗██║    ██║████╗ ████║
-											██║  ██║██║ █╗ ██║██╔████╔██║
-											██║  ██║██║███╗██║██║╚██╔╝██║
-											██████╔╝╚███╔███╔╝██║ ╚═╝ ██║
-											╚═════╝  ╚══╝╚══╝ ╚═╝     ╚═╝
+ 				██████╗ ██╗    ██╗███╗   ███╗
+   				██╔══██╗██║    ██║████╗ ████║
+   				██║  ██║██║ █╗ ██║██╔████╔██║
+   				██║  ██║██║███╗██║██║╚██╔╝██║
+   				██████╔╝╚███╔███╔╝██║ ╚═╝ ██║
+   				╚═════╝  ╚══╝╚══╝ ╚═╝     ╚═╝
 ```
 ==============================  
-DWM 6.1 with some patches for personal usage.  
+DWM 6.1 with some patches for personal usage and some assorted bits
+- slstatus
+- st with patches (alpha, custom color scheme)
+- dwmstatus (modified)
+- assorted scripts for xinitrc
   
     
 Patches
@@ -29,6 +33,8 @@ Patches
 * **Toggle Fullscreen**
 * **Monocle Count**
 * **Move Resize**
+* **FancyBar**
+* **DualStatus**
   
 Screenshot
 ----------------------------
