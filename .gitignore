@@ -3,5 +3,6 @@ dwm
 st
 dwmstatus
 dmenu
+slstatus
 *.orig
 *.rej
