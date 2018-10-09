@@ -17,6 +17,7 @@ Fonts used:
 - Fira Code
 
 Recommended utilities:
+- dmenu (for starting programs)
 - feh (for setting backgrounds)
 - spectacle (for screenshots) 
 - slock (screen lock)
