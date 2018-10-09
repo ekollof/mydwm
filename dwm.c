@@ -904,19 +904,18 @@ drawbar(Monitor *m)
 	drw_text(drw, x, 0, w, bh, m->ltsymbol, 0);
 	x += w;
 	xx = x;
-	if (m == selmon) { /* status is only drawn on selected monitor */
-		w = drw_get_width(drw, NUMCOLORS, stext);
-		x = m->ww - w;
-		if (showsystray && m == systraytomon(m)) {
-			x -= getsystraywidth();
-		}
-		if (x < xx) {
-			x = xx;
-			w = m->ww - xx;
-		}
-		drw_text(drw, x, 0, w, bh, stext, 0);
-	} else
-		x = m->ww;
+
+  w = drw_get_width(drw, NUMCOLORS, stext);
+  x = m->ww - w;
+  if (showsystray && m == systraytomon(m)) {
+    x -= getsystraywidth();
+  }
+  if (x < xx) {
+    x = xx;
+    w = m->ww - xx;
+  }
+  drw_text(drw, x, 0, w, bh, stext, 0);
+
 	if ((w = x - xx) > bh) {
 		x = xx;
         if (n > 0) {
@@ -2488,9 +2487,12 @@ updatetitle(Client *c)
 void
 updatestatus(void)
 {
+  Monitor *m;
+
 	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
 		strcpy(stext, "dwm-"VERSION);
-	drawbar(selmon);
+  for (m = mons; m; m = m->next)
+    drawbar(m);
 }
 
 void
