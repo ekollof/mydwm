@@ -47,6 +47,7 @@ static const int systraypinningfailfirst 	= 1;	/* 1: if pinning fails, display s
 static const int showsystray 				= 1;	/* 0 means no systray */
 static const int showbar 					= 1;	/* 0 means no bar */
 static const int topbar 					= 1;	/* 0 means bottom bar */
+static const int extrabar                    = 0;   /* 0 means no extra bar */
 
 #define NUMCOLORS 9
 static const char colors[NUMCOLORS][MAXCOLORS][9] = {
@@ -150,6 +151,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,			XK_l,						spawn,				{.v = lockcmd } },
 	{ MODKEY,						XK_Return,					spawn,				{.v = termcmd } },
 	{ MODKEY|ShiftMask,				XK_b,						togglebar,			{0} },
+    { MODKEY|ControlMask|ShiftMask, XK_b,                       toggleextrabar,     {0} },
 	{ MODKEY,						XK_Right,					focusstack,			{.i = +1 } },
 	{ MODKEY,						XK_Left,					focusstack,			{.i = -1 } },
 	{ MODKEY,						XK_i,						incnmaster,			{.i = +1 } },
