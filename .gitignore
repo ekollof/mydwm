@@ -1,5 +1,7 @@
 *.o
 dwm
 st
+dwmstatus
+dmenu
 *.orig
 *.rej
