@@ -139,7 +139,7 @@ static const char *volup[] 			= { "pulseaudio-ctl", "up", NULL };
 static const char *voldown[] 		= { "pulseaudio-ctl", "down", NULL };
 static const char *voltoggle[] 		= { "pulseaudio-ctl", "mute", NULL };
 static const char *togtouchpad[] 	= { "touchpad", NULL };
-static const char *screenshot[] 	= { "screenshot", NULL};
+static const char *screenshot[] 	= { "spectacle", NULL};
 static const char *passcmd[]        = { "passdmenu", NULL };
 static const char *lockcmd[]        = { "slock", NULL };
 

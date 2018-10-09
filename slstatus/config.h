@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+/* sEE lICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
 const unsigned int interval = 1000;
@@ -61,10 +61,13 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ datetime, "%s;",           "%F %T" },
-    { hostname,     "%s |",           "enp3s0"},
-    { netspeed_rx,     "%s | ",           "enp3s0"},
-    { netspeed_tx,     "%s | ",           "enp3s0"},
+  
+	{ disk_free, " 💻: %s |",           "/" },
+	{ load_avg, " 📏: %s |",           NULL },
+	{ datetime, " ⏰: %s;",           "%H:%M:%S" },
+    { hostname,     " %s |",           "enp3s0"},
+    { netspeed_rx,     " %10s | ",           "enp3s0"},
+    { netspeed_tx,     " %10s | ",           "enp3s0"},
     { ipv4,     "%s/",           "enp3s0"},
     { ipv6,     "%s | ",           "sit1"},
 };
