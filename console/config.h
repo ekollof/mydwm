@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // static char *font = "Bitstream Vera Sans Mono:size=10:antialias=true:autohint=true";
-static char *font = "Noto Sans Mono:size=10:antialias=true:autohint=true";
+static char *font = "Fira Code:size=12:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -87,44 +87,50 @@ unsigned int tabspaces = 8;
 unsigned int alpha = 0xcc;
 
 /* Terminal colors (16 first used in escape sequence) */
+
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+  /* 8 normal colors */
+  [0] = "#2d2d2d", /* black   */
+  [1] = "#f2777a", /* red     */
+  [2] = "#99cc99", /* green   */
+  [3] = "#ffcc66", /* yellow  */
+  [4] = "#6699cc", /* blue    */
+  [5] = "#cc99cc", /* magenta */
+  [6] = "#66cccc", /* cyan    */
+  [7] = "#d3d0c8", /* white   */
 
-	[255] = 0,
+  /* 8 bright colors */
+  [8]  = "#747369", /* black   */
+  [9]  = "#f2777a", /* red     */
+  [10] = "#99cc99", /* green   */
+  [11] = "#ffcc66", /* yellow  */
+  [12] = "#6699cc", /* blue    */
+  [13] = "#cc99cc", /* magenta */
+  [14] = "#66cccc", /* cyan    */
+  [15] = "#f2f0ec", /* white   */
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"black",
+  /* special colors */
+  [256] = "#2d2d2d", /* background */
+  [257] = "#d3d0c8", /* foreground */
 };
-
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
+ * foreground, background, cursor
  */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 257;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+static unsigned int defaultcs = 257;
+static unsigned int defaultrcs = 256;
+
+/*
+ * Colors used, when the specific fg == defaultfg. So in reverse mode this
+ * will reverse too. Another logic would only make the simple feature too
+ * complex.
+ */
+static unsigned int defaultitalic = 7;
+static unsigned int defaultunderline = 7;
 
 /*
  * Default shape of cursor
@@ -133,7 +139,7 @@ static unsigned int defaultrcs = 257;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorshape = 4;
 
 /*
  * Default columns and rows numbers
