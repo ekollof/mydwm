@@ -234,6 +234,7 @@ static void resizemouse(const Arg *arg);
 static void resizerequest(XEvent *e);
 static void restack(Monitor *m);
 static void run(void);
+static void runAuto(void);
 static void scan(void);
 static int sendevent(Window w, Atom proto, int m, long d0, long d1, long d2, long d3, long d4);
 static void sendmon(Client *c, Monitor *m);
@@ -868,6 +869,7 @@ drawbar(Monitor *m)
   dx = (drw->fonts[0]->ascent + drw->fonts[0]->descent + 2) / 4;
 
 	resizebarwin(m);
+  updatesystray();
 
 	for (c = m->clients; c; c = c->next) {
         if (ISVISIBLE(c))
@@ -1746,6 +1748,13 @@ run(void)
 	while (running && !XNextEvent(dpy, &ev))
 		if (handler[ev.type])
 			handler[ev.type](&ev); /* call handler */
+}
+
+void
+runAuto(void) {
+  // TODO: Make this configurable
+  system("cd ~/.dwm; ./autostart_blocking.sh");
+  system("cd ~/.dwm; ./autostart.sh &");
 }
 
 void
@@ -2801,6 +2810,7 @@ main(int argc, char *argv[])
 	checkotherwm();
 	setup();
 	scan();
+  runAuto();
 	run();
 	cleanup();
 	XCloseDisplay(dpy);
