@@ -865,6 +865,8 @@ drawbar(Monitor *m)
 	
 	Client *c;
 
+  dx = (drw->fonts[0]->ascent + drw->fonts[0]->descent + 2) / 4;
+
 	resizebarwin(m);
 
 	for (c = m->clients; c; c = c->next) {
@@ -951,7 +953,7 @@ drawbar(Monitor *m)
             }
 
         }
-		drw_setscheme(drw, &scheme[SchemeNorm]);
+		drw_setscheme(drw, &scheme[0]);
 		drw_rect(drw, x, 0, w, bh, 1, 0, 1);
 	}
 	drw_map(drw, m->barwin, 0, 0, m->ww, bh);
