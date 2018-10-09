@@ -24,12 +24,12 @@
 */
 static const char *fonts[] = {
 	/*"termsynu:size=12",*/
-    "Terminus:size=12.5",
+    "Fira Code:size=12.5",
 	"Metis:pixelsize=9",
 	"Siji"
 };
 
-static const char dmenufont[]       = "Terminus:size=12.5";
+static const char dmenufont[]       = "Fira Code:size=12.5";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -47,6 +47,7 @@ static const int systraypinningfailfirst 	= 1;	/* 1: if pinning fails, display s
 static const int showsystray 				= 1;	/* 0 means no systray */
 static const int showbar 					= 1;	/* 0 means no bar */
 static const int topbar 					= 1;	/* 0 means bottom bar */
+static const int extrabar                    = 0;   /* 0 means no extra bar */
 
 #define NUMCOLORS 9
 static const char colors[NUMCOLORS][MAXCOLORS][9] = {
@@ -133,12 +134,12 @@ static char dmenumon[2] 			= "0"; /* component of dmenucmd, manipulated in spawn
 // static const char *dmenucmd[] 		= { "spawn_rofi", NULL };
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 
-static const char *termcmd[] 		= { "termite", NULL };
+static const char *termcmd[] 		= { "st", NULL };
 static const char *volup[] 			= { "pulseaudio-ctl", "up", NULL };
 static const char *voldown[] 		= { "pulseaudio-ctl", "down", NULL };
 static const char *voltoggle[] 		= { "pulseaudio-ctl", "mute", NULL };
-static const char *togtouchpad[] 	= { "touchpad", NULL };
-static const char *screenshot[] 	= { "screenshot", NULL};
+static const char *togtouchpad[] 	= { "touchpad-toggle.sh", NULL };
+static const char *screenshot[] 	= { "spectacle", NULL};
 static const char *passcmd[]        = { "passdmenu", NULL };
 static const char *lockcmd[]        = { "slock", NULL };
 
@@ -150,6 +151,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,			XK_l,						spawn,				{.v = lockcmd } },
 	{ MODKEY,						XK_Return,					spawn,				{.v = termcmd } },
 	{ MODKEY|ShiftMask,				XK_b,						togglebar,			{0} },
+    { MODKEY|ControlMask|ShiftMask, XK_b,                       toggleextrabar,     {0} },
 	{ MODKEY,						XK_Right,					focusstack,			{.i = +1 } },
 	{ MODKEY,						XK_Left,					focusstack,			{.i = -1 } },
 	{ MODKEY,						XK_i,						incnmaster,			{.i = +1 } },
