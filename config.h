@@ -24,12 +24,12 @@
 */
 static const char *fonts[] = {
 	/*"termsynu:size=12",*/
-    "Terminus:size=12.5",
+    "Fira Code:size=12.5",
 	"Metis:pixelsize=9",
 	"Siji"
 };
 
-static const char dmenufont[]       = "Terminus:size=12.5";
+static const char dmenufont[]       = "Noto Sans Mono:size=12.5";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -133,7 +133,7 @@ static char dmenumon[2] 			= "0"; /* component of dmenucmd, manipulated in spawn
 // static const char *dmenucmd[] 		= { "spawn_rofi", NULL };
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 
-static const char *termcmd[] 		= { "termite", NULL };
+static const char *termcmd[] 		= { "st", NULL };
 static const char *volup[] 			= { "pulseaudio-ctl", "up", NULL };
 static const char *voldown[] 		= { "pulseaudio-ctl", "down", NULL };
 static const char *voltoggle[] 		= { "pulseaudio-ctl", "mute", NULL };
