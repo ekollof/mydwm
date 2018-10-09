@@ -12,7 +12,16 @@ DWM 6.1 with some patches for personal usage and some assorted bits
 - st with patches (alpha, custom color scheme)
 - dwmstatus (modified)
 - assorted scripts for xinitrc
-  
+
+Fonts used:
+- Fira Code
+
+Recommended utilities:
+- feh (for setting backgrounds)
+- spectacle (for screenshots) 
+- slock (screen lock)
+- passdmenu (for pass integration)
+- touchpad-toggle[aur] (touchpad toggle)
     
 Patches
 ----------------------------
@@ -35,6 +44,7 @@ Patches
 * **Move Resize**
 * **FancyBar**
 * **DualStatus**
+* **Autostart**
   
 Screenshot
 ----------------------------
