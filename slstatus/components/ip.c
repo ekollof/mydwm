@@ -3,12 +3,24 @@
 #include <netdb.h>
 #include <stdio.h>
 #include <string.h>
+#include <pcap.h>
 #if defined(__OpenBSD__)
 	#include <sys/types.h>
 	#include <sys/socket.h>
 #endif
 
 #include "../util.h"
+
+static const char * getdefaultif(void) {
+  char *dev, errbuf[PCAP_ERRBUF_SIZE];
+
+  dev = pcap_lookupdev(errbuf);
+  if (dev == NULL) {
+    err("getdefaultif:");
+    return NULL;
+  }
+  return dev;
+}
 
 static const char *
 ip(const char *interface, unsigned short sa_family)
@@ -47,11 +59,17 @@ ip(const char *interface, unsigned short sa_family)
 const char *
 ipv4(const char *interface)
 {
+  if (interface == NULL) {
+    interface = getdefaultif();
+  }
 	return ip(interface, AF_INET);
 }
 
 const char *
 ipv6(const char *interface)
 {
+  if (interface == NULL) {
+    interface = getdefaultif();
+  }
 	return ip(interface, AF_INET6);
 }
