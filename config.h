@@ -47,7 +47,7 @@ static const int systraypinningfailfirst 	= 1;	/* 1: if pinning fails, display s
 static const int showsystray 				= 1;	/* 0 means no systray */
 static const int showbar 					= 1;	/* 0 means no bar */
 static const int topbar 					= 1;	/* 0 means bottom bar */
-static const int extrabar                    = 0;   /* 0 means no extra bar */
+static const int extrabar                    = 1;   /* 0 means no extra bar */
 
 #define NUMCOLORS 9
 static const char colors[NUMCOLORS][MAXCOLORS][9] = {
