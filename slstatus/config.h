@@ -60,13 +60,14 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-  
-	{ disk_free, " 💻: %s |",           "/" },
-	{ disk_free, " 🏘: %s |",           "/home" },
-	{ load_avg, " 📏: %s |",           NULL },
-	{ datetime, " ⏰: %s;",           "%H:%M:%S" },
-    { hostname,     " %s |",           "enp3s0"},
+    /* function format          argument */
+
+    { disk_free, " 💻: %s |",           "/" },
+    { disk_free, " 🏘: %s |",           "/home" },
+    { load_avg, " 📏: %s |",           NULL },
+    { datetime, " ⏰: %s;",           "%H:%M:%S" },
+    { username, " %s@",                 NULL },
+    { hostname,     "%s |",           "enp3s0"},
     { netspeed_rx,     " %10s ↓| ",           "enp3s0"},
     { netspeed_tx,     " %10s ↑| ",           "enp3s0"},
     { ipv4,     "🖧  %s / ",           "enp3s0"},
