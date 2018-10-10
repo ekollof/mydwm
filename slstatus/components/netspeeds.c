@@ -1,11 +1,24 @@
 /* See LICENSE file for copyright and license details. */
 #include <stdio.h>
 #include <limits.h>
+#include <pcap.h>
 
 #include "../util.h"
 
 #if defined(__linux__)
 	#include <stdint.h>
+  
+static const char * getdefaultif(void) {
+   char *dev, errbuf[PCAP_ERRBUF_SIZE];
+
+   dev = pcap_lookupdev(errbuf);
+   if (dev == NULL) {
+     err("getdefaultif:");
+     return NULL;
+   }
+   return dev;
+}
+
 
 	const char *
 	netspeed_rx(const char *interface)
@@ -14,6 +27,10 @@
 		static uintmax_t rxbytes;
 		extern const unsigned int interval;
 		char path[PATH_MAX];
+
+    if (interface == NULL) {
+      getdefaultif();
+    }
 
 		oldrxbytes = rxbytes;
 
@@ -40,6 +57,10 @@
 		static uintmax_t txbytes;
 		extern const unsigned int interval;
 		char path[PATH_MAX];
+
+    if (interface == NULL) {
+      interface = getdefaultif();
+    }
 
 		oldtxbytes = txbytes;
 

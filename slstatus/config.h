@@ -66,8 +66,8 @@ static const struct arg args[] = {
 	{ load_avg, " 📏: %s |",           NULL },
 	{ datetime, " ⏰: %s;",           "%H:%M:%S" },
     { hostname,     " %s |",           "enp3s0"},
-    { netspeed_rx,     " %10s | ",           "enp3s0"},
-    { netspeed_tx,     " %10s | ",           "enp3s0"},
-    { ipv4,     "%s/",           "enp3s0"},
-    { ipv6,     "%s | ",           "sit1"},
+    { netspeed_rx,     " %10s | ",           NULL},
+    { netspeed_tx,     " %10s | ",           NULL},
+    { ipv4,     "%s/",           NULL},
+    { ipv6,     "%s | ",           NULL},
 };
