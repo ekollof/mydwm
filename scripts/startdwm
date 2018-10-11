@@ -2,9 +2,6 @@
 #Needed by Java apps to work correctly
 touch .restartdwm
 
-# Fix some systray icons
-export XDG_CURRENT_DESKTOP=kde
-
 wmname LG3D 
 #Autostart apps 
 (compton -CGb) &
