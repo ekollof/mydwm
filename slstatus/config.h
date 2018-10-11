@@ -73,5 +73,5 @@ static const struct arg args[] = {
     { netspeed_rx,     " %10s ↓| ",           "wlp2s0"},
     { netspeed_tx,     " %10s ↑| ",           "wlp2s0"},
     { ipv4,     "🖧  %s / ",           "wlp2s0"},
-    { ipv6,     "%s | ",           "sit1"},
+    { ipv6,     "%s | ",           "wlp2s0"},
 };
