@@ -62,14 +62,16 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
     /* function format          argument */
 
+    { battery_perc, " 🔋: %s ",           "BAT0" },
+    { battery_state, " (%s) |",           "BAT0" },
     { disk_free, " 💻: %s |",           "/" },
     { disk_free, " 🏘: %s |",           "/home" },
     { load_avg, " 📏: %s |",           NULL },
     { datetime, " ⏰: %s;",           "%H:%M:%S" },
     { username, " %s@",                 NULL },
-    { hostname,     "%s |",           "enp3s0"},
-    { netspeed_rx,     " %10s ↓| ",           "enp3s0"},
-    { netspeed_tx,     " %10s ↑| ",           "enp3s0"},
-    { ipv4,     "🖧  %s / ",           "enp3s0"},
+    { hostname,     "%s |",           "wlp2s0"},
+    { netspeed_rx,     " %10s ↓| ",           "wlp2s0"},
+    { netspeed_tx,     " %10s ↑| ",           "wlp2s0"},
+    { ipv4,     "🖧  %s / ",           "wlp2s0"},
     { ipv6,     "%s | ",           "sit1"},
 };
