@@ -23,6 +23,7 @@ Recommended utilities:
 - slock (screen lock)
 - passdmenu (for pass integration)
 - touchpad-toggle[aur] (touchpad toggle)
+- light (for changing keyboard and monitor brightness)
     
 Patches
 ----------------------------
