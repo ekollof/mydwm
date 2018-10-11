@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+/* sEE lICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
 const unsigned int interval = 1000;
@@ -60,6 +60,18 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+    /* function format          argument */
+
+    { battery_perc, " 🔋: %s ",           "BAT0" },
+    { battery_state, " (%s) |",           "BAT0" },
+    { disk_free, " 💻: %s |",           "/" },
+    { disk_free, " 🏘: %s |",           "/home" },
+    { load_avg, " 📏: %s |",           NULL },
+    { datetime, " ⏰: %s;",           "%H:%M:%S" },
+    { username, " %s@",                 NULL },
+    { hostname,     "%s |",           NULL},
+    { netspeed_rx,     " %10s ↓| ",           NULL},
+    { netspeed_tx,     " %10s ↑| ",           NULL},
+    { ipv4,     "🖧  %s / ",           NULL},
+    { ipv6,     "%s | ",           "sit1@NONE"},
 };
