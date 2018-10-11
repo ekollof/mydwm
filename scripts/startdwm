@@ -15,8 +15,8 @@ wmname LG3D
 while [ -e ~/.restartdwm ] 
 do
     feh --randomize --bg-scale ~/Wallpapers/
-    killall dwmstatus                   #Kill old dwmstatus
-    (nohup dwmstatus) &
+    killall slstatus                   #Kill old dwmstatus
+    (nohup slstatus) &
     sleep 0.1                           #Wait old dwmstatus to exit
     dwm                                 #Start Dynamic Windows Manager
 done

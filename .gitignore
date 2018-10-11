@@ -1,9 +1,6 @@
 *.o
 dwm
-st
-dwmstatus
-slstatus
-dmenu
-slstatus
+console/st
+slstatus/slstatus
 *.orig
 *.rej
