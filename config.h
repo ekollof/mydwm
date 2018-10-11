@@ -64,7 +64,7 @@ static const int toptab            = False;    /* False means bottom tab bar */
 static const char colors[NUMCOLORS][MAXCOLORS][9] = {
 	// border	 foreground	background
 	{ "#f9f9f9", "#f5f5f5", "#03070b" }, // 0 = normal
-	{ "#000000", "#f5f5f5", "#8a2e4e" }, // 1 = selected
+	{ "#b23450", "#f5f5f5", "#8a2e4e" }, // 1 = selected
 	{ "#b43030", "#f5f5f5", "#b23450" }, // 2 = red / urgent
 	{ "#212121", "#f5f5f5", "#14161A" }, // 3 = green / occupied
 	{ "#212121", "#ab7438", "#0b0606" }, // 4 = yellow
