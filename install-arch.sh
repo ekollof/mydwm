@@ -2,7 +2,8 @@
 
 echo "Installing dependancies..."
 sudo pacman -S --noconfirm gcc pacaur light network-manager-applet pasystray pulseaudio alsa-oss alsa-plugins alsa-utils pamac dmenu feh gajim slock touchpad-toggle wmname spectacle compton
-pacaur -S --noconfirm keybase-bin passdmenu xinit-xsession ttf-twemoji-color ttf-fira-code
+pacaur -S --noconfirm keybase-bin passdmenu xinit-xsession ttf-twemoji-color
+ttf-fira-code consolekit-git
 TOP=`pwd`
 echo "Building window manager and utilities"
 make  
