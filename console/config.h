@@ -83,10 +83,10 @@ char *termname = "xterm-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-unsigned int alpha = 0xed;
+unsigned int alpha = 0xcc;
 
 static const char *colorname[] = {
-	"#2d2d2d",  /*  0: black    */
+	"#1d1d1d",  /*  0: black    */
 	"#f2777a",  /*  1: red      */
 	"#99cc99",  /*  2: green    */
 	"#ffcc66",  /*  3: yellow   */
