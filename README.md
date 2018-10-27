@@ -47,6 +47,8 @@ Patches
 * **FancyBar**
 * **DualStatus**
 * **Autostart**
+* **ExtraBar**
+* **Tab**
   
 Screenshot
 ----------------------------
