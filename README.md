@@ -49,6 +49,7 @@ Patches
 * **Autostart**
 * **ExtraBar**
 * **Tab**
+* **Bottomstack**
   
 Screenshot
 ----------------------------
