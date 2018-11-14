@@ -65,7 +65,7 @@ static const struct arg args[] = {
     { disk_free, " 💻: %s |",           "/" },
     { disk_free, " 🏘: %s |",           "/home" },
     { load_avg, " 📏: %s |",           NULL },
-    { datetime, " ⏰: %s;",           "%H:%M:%S" },
+    { datetime, " ⏰: %s;",           "%Y-%m-%d %H:%M:%S" },
     { username, " %s@",                 NULL },
     { hostname,     "%s |",           NULL},
     { netspeed_rx,     " %10s ↓| ",           NULL},
