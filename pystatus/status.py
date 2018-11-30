@@ -23,10 +23,14 @@ def main():
 
     while(True):
         cpuload = psutil.cpu_percent()
+        memused = int(dict(psutil.virtual_memory()._asdict())['used'] / 1024 / 1024)
+        memtotal = int(dict(psutil.virtual_memory()._asdict())['total'] / 1024 / 1024)
+        swapused =  int(dict(psutil.swap_memory()._asdict())['used'] / 1024 / 1024)
+        swaptotal =  int(dict(psutil.swap_memory()._asdict())['total'] / 1024 / 1024)
         now = datetime.datetime.now()
         curtime = now.strftime("%d-%m-%Y %H:%M:%S")
 
-        status = f"CPU: {cpuload: >5}% - {curtime};" + \
+        status = f"MEM: {memused: >6}/{memtotal: >6} MB : SWAP {swapused: >6}/{swaptotal: >6} : CPU: \x03{cpuload: >5}%\x01 - {curtime};" + \
             f"Host: {hostname: <20} Local IP: {localip: <18} Public IP: {pubip: <18}"
         root.set_wm_name(status)
         display.sync()

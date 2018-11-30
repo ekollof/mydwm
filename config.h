@@ -151,7 +151,9 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2]         = "0"; /* component of dmenucmd, manipulated in spawn() */
 // static const char *dmenucmd[]    = { "spawn_rofi", NULL };
-static const char *dmenucmd[]       = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+// static const char *dmenucmd[]       = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const *dmenucmd[]             = { "rofi", "-show", "run", NULL };
+static const *rofiwin[]              = { "rofi", "-show", "window", NULL };
 
 static const char *termcmd[]        = { "sakura", NULL };
 static const char *volup[]          = { "pulseaudio-ctl", "up", NULL };
@@ -170,6 +172,7 @@ static const char *kbdbrightoff[]   = { "light", "-k", "-S", "0", NULL };
 static Key keys[] = {
     /* modifier                     key                         function            argument */
     { MODKEY,                       XK_p,                       spawn,              {.v = dmenucmd } },
+    { MODKEY|ShiftMask,             XK_w,                       spawn,              {.v = rofiwin } },
     { MODKEY|ShiftMask,             XK_p,                       spawn,              {.v = passcmd } },
     { MODKEY|ControlMask,           XK_l,                       spawn,              {.v = lockcmd } },
     { MODKEY,                       XK_Return,                  spawn,              {.v = termcmd } },
