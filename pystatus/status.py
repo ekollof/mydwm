@@ -1,6 +1,7 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python3
 
 import os
+import os.path
 import sys
 import time
 import datetime
@@ -22,6 +23,10 @@ def main():
     pubip = urllib.request.urlopen('https://enabledns.com/ip',context=ssl._create_unverified_context()).read().decode("utf-8")
 
     while(True):
+
+        if os.path.isfile('/tmp/statquit'):
+            sys.exit()
+
         cpuload = psutil.cpu_percent()
         memused = int(dict(psutil.virtual_memory()._asdict())['used'] / 1024 / 1024)
         memtotal = int(dict(psutil.virtual_memory()._asdict())['total'] / 1024 / 1024)
