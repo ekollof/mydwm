@@ -12,6 +12,18 @@ import urllib.request
 
 from Xlib.display import Display
 
+def getbatterypct():
+    bat = open("/sys/class/power_supply/BAT1/capacity")
+    pct = bat.read()
+    pct = pct.strip()
+    return pct
+
+def getbatstatus():
+    bstat = open("/sys/class/power_supply/BAT1/status")
+    ret = bstat.read()
+    ret = ret.strip()
+    return ret
+
 def main():
 
     display = Display()
@@ -32,10 +44,12 @@ def main():
         memtotal = int(dict(psutil.virtual_memory()._asdict())['total'] / 1024 / 1024)
         swapused =  int(dict(psutil.swap_memory()._asdict())['used'] / 1024 / 1024)
         swaptotal =  int(dict(psutil.swap_memory()._asdict())['total'] / 1024 / 1024)
+        batpct = getbatterypct()
+        batstatus = getbatstatus()
         now = datetime.datetime.now()
         curtime = now.strftime("%d-%m-%Y %H:%M:%S")
 
-        status = f"MEM: {memused: >6}/{memtotal: >6} MB : SWAP {swapused: >6}/{swaptotal: >6} : CPU: \x03{cpuload: >5}%\x01 - {curtime};" + \
+        status = f"BAT: {batpct: >3}% ({batstatus: <11}) : MEM: {memused: >6}/{memtotal: >6} MB : SWAP {swapused: >6}/{swaptotal: >6}: CPU: {cpuload: >5}% - {curtime};" + \
             f"Host: {hostname: <20} Local IP: {localip: <18} Public IP: {pubip: <18}"
         root.set_wm_name(status)
         display.sync()
