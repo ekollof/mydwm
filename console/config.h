@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Fira Code:size=12:antialias=true:autohint=true";
+static char *font = "Iosevka Term:size=14:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -32,7 +32,7 @@ static float chscale = 1.0;
  *
  * More advanced example: " `'\"()[]{}"
  */
-char *worddelimiters = " ";
+char *worddelimiters = " `'\"()[]{}";
 
 /* selection timeouts (in milliseconds) */
 static unsigned int doubleclicktimeout = 300;
@@ -208,8 +208,8 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ MODKEY|ShiftMask,     XK_Prior,       zoom,           {.f = +1} },
-	{ MODKEY|ShiftMask,     XK_Next,        zoom,           {.f = -1} },
+	{ ControlMask,     	XK_k,       	zoom,           {.f = +1} },
+	{ ControlMask,     	XK_j,        	zoom,           {.f = -1} },
 	{ MODKEY|ShiftMask,     XK_Home,        zoomreset,      {.f =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,      {.i =  0} },
 	{ MODKEY,               XK_c,           clipcopy,       {.i =  0} },
